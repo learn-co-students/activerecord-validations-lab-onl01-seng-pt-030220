@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   
     def click_bait
       if title && !title.include?("Won't Believe"||"Secret"||"Top "||"Guess")
-        errors.add(:title, "Needs to be more exciting!")
+        errors.add(:title, "Make it click-baity")
       end
     end
 end

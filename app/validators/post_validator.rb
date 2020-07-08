@@ -41,3 +41,17 @@ class PostValidator < ActiveModel::Validator
 
 
 end
+
+# include ActiveModel::Validations #this line would be added to app/models/post.rb in the Post class
+# validates_with TitleValidator #this line would be added to app/models/post.rb in the Post class
+
+# class TitleValidator < ActiveModel::Validator
+#   def validate(record)
+#     clickbait = ["Won't Believe", "Secret", "Top", "Guess"]
+#     if record.title
+#       unless clickbait.any?{ |w| record.title.include?(w)}
+#         record.errors[:title] << "Click bait!"
+#       end
+#     end
+#   end
+# end

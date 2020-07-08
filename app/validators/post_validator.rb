@@ -33,4 +33,11 @@ class PostValidator < ActiveModel::Validator
     end
   end
 
+  # def clickbait 
+  #   if !title.nil? && (!title.include?("You Won't" || "Secret" || "Top" || "Guess")) 
+  #       errors.add(:clickbait, "Click Bait!")
+  #   end 
+  # end
+
+
 end

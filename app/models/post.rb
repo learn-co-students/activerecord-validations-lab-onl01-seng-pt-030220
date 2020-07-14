@@ -1,14 +1,12 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true;
   validates :content, length: { minimum: 250 };
   validates :summary, length: { maximum: 250 };
-  validates :category, inclusion: { in: %w{fiction non-fiction}, message: "%{value} is not a valid category"};
-  validate :title_not_clickbaity_enough
+  validates :category, inclusion: { in: %w(Fiction Non-Fiction) };
+  validate :title_not_clickbait
 
-  def title_not_clickbaity_enough
-binding.pry
-    unless title.starts_with?("Won't Believe") || title.starts_with?("Secret") || title.starts_with?("Top") || title.starts_with?("Guess")
-      errors.add(:title, "Not clickbaity enough")
+  def title_not_clickbait
+    unless title && title.include?("Won't Believe") || title && title.include?("Secret") || title && title.include?("Top") || title && title.include?("Guess")
+      errors.add(:title, "Not clickbait")
     end
   end
 
